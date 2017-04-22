@@ -6,7 +6,8 @@ import {
   View,
   TextView,
   Text,
-  StyleSheet
+  StyleSheet,
+  TouchableOpacity
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
@@ -28,6 +29,7 @@ export default class Map extends Component {
               latitude: 37.78825,
               longitude: -122.4324
             }}
+            onPress={(e) => {this._onParkServiceMarkerPress()}}
           >
             <ParkingServiceMarker />
           </MapView.Marker>
@@ -36,5 +38,9 @@ export default class Map extends Component {
         <MaterialIcons style={Styles.myLocationBtn} name="my-location" />
       </View>
     );
+  }
+
+  _onParkServiceMarkerPress = () => {
+    alert('Parking service marker pressed');
   }
 };

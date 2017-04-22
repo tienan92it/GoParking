@@ -9,8 +9,9 @@ export default class ParkingServiceMarker extends Component {
   render() {
     return (
       <View style={Styles.parkingServiceMarker}>
-        <Icon name="ios-pin" />
-        <Text style={Styles.pricing}>20$</Text>
+        <View style={Styles.pricing}>
+          <Text style={{color: 'white', fontWeight: '600'}}>20$</Text>
+        </View>
       </View>
     );
   }
