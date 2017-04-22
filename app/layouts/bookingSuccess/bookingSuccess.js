@@ -11,6 +11,7 @@ import Styles from './styles'
 
 // import {connect} from 'react-redux';
 // import {actionCreators} from '../../reducer/reducer';
+import Home from './../home/home';
 
 export default class BookingSuccess extends Component {
 
@@ -20,22 +21,26 @@ export default class BookingSuccess extends Component {
   onBackPress(navigator) {
     navigator.pop();
   }
-  onBackPress(navigator) {
-    navigator.pop();
+  onClosePress() {
+    const {navigator} = this.props;
+    navigator.push({
+      title: "Home",
+      component: Home
+    });
   }
   render() {
     return (
       <Container >
         <Header backgroundColor="#1d7d12">
-          <Left>
-            <Button transparent onPress={() => this.onBackPress(navigator)}>
-              <Icon name='arrow-back' />
-            </Button>
-          </Left>
+          <Left />
           <Body>
             <Title style={{ fontSize: 15 }}>Thông tin đặt chỗ</Title>
           </Body>
-          <Right />
+          <Right>
+            <Button transparent onPress={() => this.onClosePress()}>
+              <Icon name='md-close' />
+            </Button>
+          </Right>
         </Header>
 
         <Content>
