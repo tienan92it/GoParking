@@ -14,11 +14,12 @@ import {
 
 import Home from './layouts/home/home';
 import Booking from './layouts/booking/booking';
-import ParkingInfo from './layouts/parkinginfo/ParkingInfo'
+import ParkingInfo from './layouts/parkinginfo/ParkingInfo';
+import Search from './layouts/search/search';
 
 const defaultRoute = {
-  title: 'Home',
-  component: Home
+  title: 'Search',
+  component: Search
 }
 
 const GoParking = (props) => {
