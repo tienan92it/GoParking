@@ -31,15 +31,17 @@ class Search extends Component {
     return (
       <Container>
           <Header searchBar rounded>
-              <Item>
+              <Item style={{flex: 1}}>
                   <Icon name="md-search" />
                   <Input onChangeText={this.onTextInputChange} placeholder="Your destination" />
               </Item>
-              <Right>
-                <Button transparent onPress={() => this.onCloseBtnPress()}>
-                  <Icon name='md-close' />
-                </Button>
-              </Right>
+              
+                <View style={{alignItems: "center", justifyContent: "center", paddingLeft: 15}}>
+                  <TouchableOpacity onPress={() => this.onCloseBtnPress()}>
+                    <Icon style={{color: "#fff"}} name='md-close' />
+                  </TouchableOpacity>
+                </View>
+              
           </Header>
 
           

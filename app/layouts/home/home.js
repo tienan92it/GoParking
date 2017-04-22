@@ -30,8 +30,8 @@ const drawerStyles = {
 
 class Home extends Component {
   DEFAULT_DESTINATION = {
-    latitude: 10.7782168,
-    longitude: 106.7016733
+    latitude: 10.7782422,
+    longitude: 106.7012126
   };
 
   constructor (props) {

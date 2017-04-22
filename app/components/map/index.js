@@ -12,6 +12,7 @@ import {
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import _ from 'lodash';
 import Images from '../../config/Images'
+import dummyData from './../../dummy-data';
 
 export default class Map extends Component {
     render() {
@@ -39,11 +40,27 @@ export default class Map extends Component {
           >
             {/*<ParkingServiceMarker />*/}
           </MapView.Marker>
+          {
+            dummyData.parkingServices.map((parkingService, index) => {
+              return (
+                <MapView.Marker
+                  key={index}
+                  coordinate={{
+                    latitude: parkingService.latitude,
+                    longitude: parkingService.longitude
+                  }}
+                  onPress={(e) => {this._onParkServiceMarkerPress()}}
+                  image={Images.mapMarker}
+                >
+                  {/*<ParkingServiceMarker />*/}
+                </MapView.Marker>
+              )
+            })
+          }
         </MapView>
-        
-        <TouchableOpacity onPress={() => this._onMyLocationBtnPress()}>
-          <MaterialIcons style={Styles.myLocationBtn} name="my-location" />
-          <Text>My location</Text>
+
+        <TouchableOpacity style={{position: "absolute", right: 15, bottom: 15}} onPress={this._onMyLocationBtnPress}>
+          <MaterialIcons style={{fontSize: 30}} name="my-location" />
         </TouchableOpacity>
       </View>
     );
@@ -56,21 +73,11 @@ export default class Map extends Component {
   _onMyLocationBtnPress = () => {
     this.setState({
       region: {
-        latitude: 21.0061913,
-        longitude: 105.8313511,
-        latitudeDelta: 0.05,
-        longitudeDelta: 0.05
+        latitude: 10.7782422,
+        longitude: 106.7012126,
+        latitudeDelta: 0.006,
+        longitudeDelta: 0.006
       }
-    })
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        var initialPosition = JSON.stringify(position);
-        // this.setState({initialPosition});
-        alert(initialPosition)
-      },
-      (error) => alert(JSON.stringify(error)),
-      {enableHighAccuracy: true, timeout: 20000}
-    );
+    });
   }
 };
