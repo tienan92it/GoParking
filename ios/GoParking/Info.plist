@@ -87,6 +87,11 @@
       <string>Skia.ttf</string>
       <string>Times New Roman.ttf</string>
       <string>Zocial.ttf</string>
+<<<<<<< HEAD
+=======
+      <string>MaterialCommunityIcons.ttf</string>
+      <string>SimpleLineIcons.ttf</string>
+>>>>>>> origin/ui-home-screen
     </array>
   </dict>
 </plist>

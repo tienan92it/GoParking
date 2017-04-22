@@ -3,10 +3,7 @@
  */
 import { StyleSheet } from 'react-native'
 
-export default StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center'
-  }
-})
+const STYLES = StyleSheet.create({
+});
+
+export default STYLES;

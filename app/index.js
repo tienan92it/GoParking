@@ -23,6 +23,7 @@ const defaultRoute = {
 const GoParking = (props) => {
   return (
     <Navigator
+      style={{backgroundColor: "red"}}
       initialRoute={defaultRoute}
       renderScene={(route, navigator) => {
         return <route.component route={route} navigator={navigator}/>
