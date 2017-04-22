@@ -17,8 +17,8 @@ import Booking from './layouts/booking/booking';
 import ParkingInfo from './layouts/parkinginfo/ParkingInfo'
 
 const defaultRoute = {
-  title: 'ParkingInfo',
-  component: ParkingInfo
+  title: 'Home',
+  component: Home
 }
 
 const GoParking = (props) => {

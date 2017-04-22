@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 
 import {
   View,
+  TextView,
   Text
 } from 'react-native';
 import Styles from './styles';
@@ -24,9 +25,39 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View style={Styles.container}>
-        <Text>Show cai Map len di!!!</Text>
-      </View>
+      <Container style={{backgroundColor: "blue", flex: 1,}}>
+          <Header>
+              <Left>
+                  <Button transparent>
+                      <Icon name='menu' />
+                  </Button>
+              </Left>
+              <Right>
+                <Button transparent>
+                    <Icon name="md-search" />
+                </Button>
+              </Right>
+          </Header>
+
+          {/*<Header searchBar rounded>
+              <Item>
+                  <Icon name="md-search" />
+                  <Input placeholder="Your destination" />
+                  <Icon name="md-close" />
+              </Item>
+          </Header>*/}
+
+          <Content style={{backgroundColor: "green", flex: 1,}}>
+            <Map />
+          </Content>
+          {/*<Footer>
+              <FooterTab>
+                  <Button full>
+                      <Text>Footer</Text>
+                  </Button>
+              </FooterTab>
+          </Footer>*/}
+      </Container>
     )
   }
 }
