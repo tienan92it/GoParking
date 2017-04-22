@@ -114,7 +114,7 @@ class Home extends Component {
     </View>)
     let mainContent =
       (<View style={{flex: 1}}>
-        <Header>
+        <Header style={{backgroundColor: "#00B386"}}>
           <Left>
             <Button transparent onPress={this.openControlPanel}>
               <Icon name='menu' />

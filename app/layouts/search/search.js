@@ -30,7 +30,7 @@ class Search extends Component {
   render() {
     return (
       <Container>
-          <Header searchBar rounded>
+          <Header searchBar rounded style={{backgroundColor: "#00B386"}}>
               <Item style={{flex: 1}}>
                   <Icon name="md-search" />
                   <Input onChangeText={this.onTextInputChange} placeholder="Điểm đến của bạn" />

@@ -48,7 +48,7 @@ export default class ParkingInfo extends Component {
     return (
       <View style={Styles.container}>
         <Container>
-          <Header backgroundColor="#1d7d12">
+          <Header style={{backgroundColor: "#00B386"}}>
             <Left>
               <Button transparent onPress={() => this.onBackPress(navigator)}>
                 <Icon name='arrow-back' />

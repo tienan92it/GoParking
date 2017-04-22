@@ -32,7 +32,7 @@ export default class BookingSuccess extends Component {
   render() {
     return (
       <Container >
-        <Header backgroundColor="#1d7d12">
+        <Header style={{backgroundColor: "#00B386"}}>
           <Left />
           <Body>
             <Title style={{ fontSize: 15 }}>Thông tin đặt chỗ</Title>
