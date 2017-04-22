@@ -2,18 +2,17 @@
  * Created by AnTran on 4/22/17.
  */
 import React, { Component } from 'react';
-import MapView from 'react-native-maps';
+
 import {
   View,
   TextView,
-  Text,
-  StyleSheet
+  Text
 } from 'react-native';
 import Styles from './styles';
 import { 
   Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Item, Input
 } from 'native-base';
-import ParkingServiceMarker from './../../components/parking-service-marker';
+import Map from './../../components/map';
 
 // import {connect} from 'react-redux';
 // import {actionCreators} from "../../reducer/reducer";
@@ -49,30 +48,7 @@ export default class Home extends Component {
           </Header>*/}
 
           <Content style={{backgroundColor: "green", flex: 1,}}>
-            <View style={Styles.mapWrapper}>
-              <MapView
-                style={Styles.map}
-                initialRegion={{
-                  latitude: 37.78825,
-                  longitude: -122.4324,
-                  latitudeDelta: 0.015,
-                  longitudeDelta: 0.0121,
-                }}
-              >
-                <MapView.Marker
-                  coordinate={{
-                    latitude: 37.78825,
-                    longitude: -122.4324
-                  }}
-                >
-                  <ParkingServiceMarker />
-                </MapView.Marker>
-              </MapView>
-            </View>
-
-            
-
-
+            <Map />
           </Content>
           {/*<Footer>
               <FooterTab>
