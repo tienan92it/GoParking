@@ -13,7 +13,8 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import _ from 'lodash';
 
 export default class Map extends Component {
-  render() {
+    render() {
+    const { navigator } = this.props
     const destination = _.get(this.props, ['destination'], {});
     const region = {
       ...destination,
@@ -29,8 +30,8 @@ export default class Map extends Component {
         >
           <MapView.Marker
             coordinate={{
-              latitude: 10.7782168,
-              longitude: 106.7016733
+              latitude: destination.latitude,
+              longitude: destination.longitude
             }}
             onPress={(e) => {this._onParkServiceMarkerPress()}}
           >
@@ -38,7 +39,7 @@ export default class Map extends Component {
           </MapView.Marker>
         </MapView>
         
-        <TouchableOpacity onPress={this._onMyLocationBtnPress}>
+        <TouchableOpacity onPress={() => this._onMyLocationBtnPress()}>
           <MaterialIcons style={Styles.myLocationBtn} name="my-location" />
           <Text>My location</Text>
         </TouchableOpacity>
@@ -59,5 +60,15 @@ export default class Map extends Component {
         longitudeDelta: 0.05
       }
     })
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        var initialPosition = JSON.stringify(position);
+        // this.setState({initialPosition});
+        alert(initialPosition)
+      },
+      (error) => alert(JSON.stringify(error)),
+      {enableHighAccuracy: true, timeout: 20000}
+    );
   }
 };

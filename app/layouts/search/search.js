@@ -14,10 +14,10 @@ import {
 import Home from './../home/home';
 import _ from 'lodash';
 
-// import {connect} from 'react-redux';
-// import {actionCreators} from "../../reducer/reducer";
+import {connect} from 'react-redux';
+import {actionCreators} from "../../reducer/reducer";
 
-export default class Search extends Component {
+class Search extends Component {
   GG_API_KEY = "AIzaSyAgI7Mxlxt-YZXYGiIw0tBkrjvAXjKvsow";
   state = {
     autocompletedPlaces: []
@@ -36,7 +36,9 @@ export default class Search extends Component {
                   <Input onChangeText={this.onTextInputChange} placeholder="Your destination" />
               </Item>
               <Right>
-                <Text style={{color: "white"}}>Close</Text>
+                <Button transparent onPress={() => this.onCloseBtnPress()}>
+                  <Icon name='md-close' />
+                </Button>
               </Right>
           </Header>
 
@@ -66,23 +68,29 @@ export default class Search extends Component {
   }
 
   onAutocompletedPlacePress = (autocompletedPlace) => {
-    const {navigator} = this.props;
+    const {navigator, dispatch} = this.props;
     const {place_id} = autocompletedPlace;
     this
       .getPlaceInfo(place_id)
       .then((response) => {
         const placeInfo = _.get(response, 'result');
 
-        navigator.push({
-          title: "Home",
-          component: Home,
-          passProps: {
-            destination: {
-              latitude: _.get(placeInfo, 'geometry.location.lat'),
-              longitude: _.get(placeInfo, 'geometry.location.lng')
-            }
-          }
-        });
+        dispatch(actionCreators.storeLocation({destination: {
+          latitude: _.get(placeInfo, 'geometry.location.lat'),
+          longitude: _.get(placeInfo, 'geometry.location.lng')
+        }}));
+
+        // navigator.push({
+        //   title: "Home",
+        //   component: Home,
+        //   passProps: {
+        //     destination: {
+        //       latitude: _.get(placeInfo, 'geometry.location.lat'),
+        //       longitude: _.get(placeInfo, 'geometry.location.lng')
+        //     }
+        //   }
+        // });
+        navigator.pop()
       });
   }
 
@@ -119,8 +127,14 @@ export default class Search extends Component {
   }
 
   onCloseBtnPress = () => {
-    
+    const {navigator} = this.props;
+    navigator.pop()
+  }
+}
+const mapStateToProps = (state) => {
+  return {
+    location : state.searchReducer.params
   }
 }
 
-// export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Search);

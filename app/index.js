@@ -6,11 +6,11 @@ import {
   Navigator
 } from 'react-native';
 
-// import {Provider} from 'react-redux';
-// import reducers from './reducer/reducer';
+import {Provider} from 'react-redux';
+import reducers from './reducer/reducer';
 
-// import { createStore } from 'redux';
-// const store = createStore(reducers);
+import { createStore } from 'redux';
+const store = createStore(reducers);
 
 import Home from './layouts/home/home';
 import Booking from './layouts/booking/booking';
@@ -25,12 +25,14 @@ const defaultRoute = {
 
 const GoParking = (props) => {
   return (
-    <Navigator
-      initialRoute={defaultRoute}
-      renderScene={(route, navigator) => {
-        const {passProps} = route;
-        return <route.component route={route} navigator={navigator} passProps={passProps} />
-      }}/>
+    <Provider store={store}>
+      <Navigator
+        initialRoute={defaultRoute}
+        renderScene={(route, navigator) => {
+          const {passProps} = route;
+          return <route.component route={route} navigator={navigator} passProps={passProps} />
+        }}/>
+    </Provider>
   )
 }
 

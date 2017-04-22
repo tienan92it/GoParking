@@ -18,8 +18,8 @@ import ParkingPopup from './../../components/parkingpopup/ParkingPopup'
 import Search from './../search/search';
 import _ from 'lodash';
 
-// import {connect} from 'react-redux';
-// import {actionCreators} from "../../reducer/reducer";
+import {connect} from 'react-redux';
+import {actionCreators} from "../../reducer/reducer";
 
 import Drawer from 'react-native-drawer'
 
@@ -28,7 +28,7 @@ const drawerStyles = {
   main: {paddingLeft: 0},
 }
 
-export default class Home extends Component {
+class Home extends Component {
   DEFAULT_DESTINATION = {
     latitude: 10.7782168,
     longitude: 106.7016733
@@ -90,7 +90,7 @@ export default class Home extends Component {
 
     const {navigator} = this.props;
     const destination = _.get(
-      this.props, ['passProps', 'destination'], this.DEFAULT_DESTINATION
+      this.props, ['location', 'destination'], this.DEFAULT_DESTINATION
     );
 
     let controlPanel = (<View style={Styles.panel}>
@@ -138,9 +138,9 @@ export default class Home extends Component {
          </Header>*/}
 
         <Content style={{backgroundColor: "green", flex: 1,}}>
-          <Map
-              destination={destination}
-              onSelectParkingService={this._onSelectParkingService} />
+          <Map navigator={navigator}
+               destination={destination}
+               onSelectParkingService={this._onSelectParkingService} />
         </Content>
         {/*<Footer>
          <FooterTab>
@@ -175,7 +175,7 @@ export default class Home extends Component {
   }
 
   _onSelectParkingService = () => {
-    const {navigator} = this.props;
+    // const {navigator} = this.props;
     
     // navigator.push({
     //   title: "Parking Info",
@@ -218,4 +218,10 @@ export default class Home extends Component {
   }
 }
 
-// export default connect(mapStateToProps)(Home);
+const mapStateToProps = (state) => {
+  return {
+    location : state.searchReducer.params
+  }
+}
+
+export default connect(mapStateToProps)(Home);

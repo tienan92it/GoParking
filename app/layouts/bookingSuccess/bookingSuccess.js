@@ -23,10 +23,11 @@ export default class BookingSuccess extends Component {
   }
   onClosePress() {
     const {navigator} = this.props;
-    navigator.push({
-      title: "Home",
-      component: Home
-    });
+    // navigator.push({
+    //   title: "Home",
+    //   component: Home
+    // });
+    navigator.popToTop()
   }
   render() {
     return (
