@@ -10,6 +10,9 @@ import {
   StyleSheet
 } from 'react-native';
 import Styles from './styles';
+import { 
+  Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Item, Input
+} from 'native-base';
 
 // import {connect} from 'react-redux';
 // import {actionCreators} from "../../reducer/reducer";
@@ -22,23 +25,54 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View style ={Styles.container}>
-        <View style={Styles.mapWrapper}>
-          <MapView
-            style={Styles.map}
-            initialRegion={{
-              latitude: 37.78825,
-              longitude: -122.4324,
-              latitudeDelta: 0.015,
-              longitudeDelta: 0.0121,
-            }}
-          >
-          </MapView>
-        </View>
-        <View style={Styles.controlsWrapper}>
-          <Text>Control wrapper</Text>
-        </View>
-      </View>
+      <Container style={{backgroundColor: "blue"}}>
+          <Header>
+              <Left>
+                  <Button transparent>
+                      <Icon name='menu' />
+                  </Button>
+              </Left>
+              <Right>
+                <Button transparent>
+                    <Icon name="md-search" />
+                </Button>
+              </Right>
+          </Header>
+
+          {/*<Header searchBar rounded>
+              <Item>
+                  <Icon name="md-search" />
+                  <Input placeholder="Your destination" />
+                  <Icon name="md-close" />
+              </Item>
+          </Header>*/}
+
+          <Content style={{backgroundColor: "green"}}>
+            <View style={Styles.mapWrapper}>
+              <MapView
+                style={Styles.map}
+                initialRegion={{
+                  latitude: 37.78825,
+                  longitude: -122.4324,
+                  latitudeDelta: 0.015,
+                  longitudeDelta: 0.0121,
+                }}
+              >
+              </MapView>
+            </View>
+
+            
+
+
+          </Content>
+          {/*<Footer>
+              <FooterTab>
+                  <Button full>
+                      <Text>Footer</Text>
+                  </Button>
+              </FooterTab>
+          </Footer>*/}
+      </Container>
     )
   }
 }
