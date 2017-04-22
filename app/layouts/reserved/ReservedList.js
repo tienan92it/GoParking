@@ -12,9 +12,9 @@ import Images from '../../config/Images'
 // import {connect} from 'react-redux';
 // import {actionCreators} from "../../reducer/reducer";
 
-const list = [{name: 'Parking Heaven', address: '208 Dien Bien Phu', in_out: '10h - 17h', image: Images.CoverImage, date: '23/4/2017'},
-  {name: 'Hell', address: '11 Le Duan', in_out: '8h - 20h', image: Images.reservedIcon, date: '23/4/2017'},
-  {name: 'Devil', address: '69 Ton Duc Thang', in_out: '15h - 1h', image: Images.personIcon, date: '23/4/2017'}]
+const list = [{name: 'Parking Heaven', address: '208 Điện Biên Phủ', in_out: '10h - 17h', image: Images.CoverImage, date: '23/4/2017'},
+  {name: 'Hell Parking', address: '11 Lê Duẩn', in_out: '8h - 20h', image: Images.reservedIcon, date: '23/4/2017'},
+  {name: 'Devil Parking', address: '69 Tôn Đức Thằng', in_out: '15h - 1h', image: Images.personIcon, date: '23/4/2017'}]
 
 export default class ReservedList extends Component {
 
