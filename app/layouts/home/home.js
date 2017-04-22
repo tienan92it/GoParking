@@ -13,6 +13,7 @@ import Styles from './styles';
 import { 
   Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Item, Input
 } from 'native-base';
+import ParkingServiceMarker from './../../components/parking-service-marker';
 
 // import {connect} from 'react-redux';
 // import {actionCreators} from "../../reducer/reducer";
@@ -63,9 +64,9 @@ export default class Home extends Component {
                     latitude: 37.78825,
                     longitude: -122.4324
                   }}
-                  title="ahihi"
-                  description="This is description"
-                />
+                >
+                  <ParkingServiceMarker />
+                </MapView.Marker>
               </MapView>
             </View>
 
