@@ -13,18 +13,15 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 export default class Map extends Component {
   state = {
-    // region: {
-    //   latitude: 37.78825,
-    //   longitude: -122.4324,
-    //   latitudeDelta: 0.0922,
-    //   longitudeDelta: 0.0421
-    // }
     region: {
       latitude: 10.7782168,
       longitude: 106.7016733,
       latitudeDelta: 0.05,
       longitudeDelta: 0.05
     }
+  }
+
+  componentDidUpdate(prevProps, prepState) {
   }
 
   render() {
@@ -47,6 +44,7 @@ export default class Map extends Component {
         
         <TouchableOpacity onPress={this._onMyLocationBtnPress}>
           <MaterialIcons style={Styles.myLocationBtn} name="my-location" />
+          <Text>Lorem ipsum</Text>
         </TouchableOpacity>
       </View>
     );
@@ -57,6 +55,13 @@ export default class Map extends Component {
   }
 
   _onMyLocationBtnPress = () => {
-    alert("aaaa");
+    this.setState({
+      region: {
+        latitude: 21.0061913,
+        longitude: 105.8313511,
+        latitudeDelta: 0.05,
+        longitudeDelta: 0.05
+      }
+    })
   }
 };

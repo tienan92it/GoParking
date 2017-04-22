@@ -19,7 +19,7 @@ import Search from './layouts/search/search';
 
 const defaultRoute = {
   title: 'Search',
-  component: Search
+  component: Home
 }
 
 const GoParking = (props) => {
@@ -27,7 +27,8 @@ const GoParking = (props) => {
     <Navigator
       initialRoute={defaultRoute}
       renderScene={(route, navigator) => {
-        return <route.component route={route} navigator={navigator}/>
+        const {passProps} = route;
+        return <route.component route={route} navigator={navigator} passProps={passProps} />
       }}/>
   )
 }
