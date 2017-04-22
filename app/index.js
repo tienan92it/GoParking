@@ -15,6 +15,7 @@ import {
 import Home from './layouts/home/home';
 import Booking from './layouts/booking/booking';
 import ParkingInfo from './layouts/parkinginfo/ParkingInfo'
+import ReservedList from './layouts/reserved/ReservedList'
 
 const defaultRoute = {
   title: 'Home',
