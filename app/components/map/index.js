@@ -40,7 +40,7 @@ export default class Map extends Component {
     );
   }
 
-  _onParkServiceMarkerPress = () => {
-    alert('Parking service marker pressed');
+  _onParkServiceMarkerPress = (parkingService) => {
+    this.props.onSelectParkingService(parkingService);
   }
 };

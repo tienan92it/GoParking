@@ -13,6 +13,7 @@ import {
   Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Item, Input
 } from 'native-base';
 import Map from './../../components/map';
+import ParkingInfo from './../parkinginfo/ParkingInfo';
 
 // import {connect} from 'react-redux';
 // import {actionCreators} from "../../reducer/reducer";
@@ -48,7 +49,7 @@ export default class Home extends Component {
           </Header>*/}
 
           <Content style={{backgroundColor: "green", flex: 1,}}>
-            <Map />
+            <Map onSelectParkingService={this._onSelectParkingService} />
           </Content>
           {/*<Footer>
               <FooterTab>
@@ -59,6 +60,15 @@ export default class Home extends Component {
           </Footer>*/}
       </Container>
     )
+  }
+
+  _onSelectParkingService = () => {
+    const {navigator} = this.props;
+    
+    navigator.push({
+      title: "Parking Info",
+      component: ParkingInfo
+    });
   }
 }
 

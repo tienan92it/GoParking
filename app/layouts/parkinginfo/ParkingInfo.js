@@ -13,6 +13,7 @@ import BottomBar from '../../components/bottombar/BottomBar'
 import Images from '../../config/Images'
 // import {connect} from 'react-redux';
 // import {actionCreators} from "../../reducer/reducer";
+import BookingScene from './../booking/booking';
 
 export default class ParkingInfo extends Component {
 
@@ -24,13 +25,15 @@ export default class ParkingInfo extends Component {
   }
 
   onBackPress (navigator) {
-    // Back to home
-    alert("Back to Map")
+    navigator.pop();
   }
 
   onReserveParking (navigator) {
     // Go to reserve
-    alert("Go to reserve")
+    navigator.push({
+      title: "Book",
+      component: BookingScene
+    });
   }
 
   showPathToParking (navigator) {
