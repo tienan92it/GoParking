@@ -14,6 +14,8 @@ import Images from '../../config/Images'
 import Map from './../../components/map';
 import ParkingInfo from './../parkinginfo/ParkingInfo';
 import ReservedList from './../reserved/ReservedList'
+import Search from './../search/search';
+import _ from 'lodash';
 
 // import {connect} from 'react-redux';
 // import {actionCreators} from "../../reducer/reducer";
@@ -26,6 +28,10 @@ const drawerStyles = {
 }
 
 export default class Home extends Component {
+  DEFAULT_DESTINATION = {
+    latitude: 10.7782168,
+    longitude: 106.7016733
+  };
 
   constructor (props) {
     super(props)
@@ -79,8 +85,10 @@ export default class Home extends Component {
   }
 
   render() {
-
     const {navigator} = this.props;
+    const destination = _.get(
+      this.props, ['passProps', 'destination'], this.DEFAULT_DESTINATION
+    );
 
     let controlPanel = (<View style={Styles.panel}>
       <View style={Styles.panelTop}>
@@ -110,7 +118,9 @@ export default class Home extends Component {
             </Button>
           </Left>
           <Right>
-            <Button transparent>
+            <Button onPress={() => {
+              this.onSearchBtnPress(navigator);
+            }} transparent>
               <Icon name="md-search" />
             </Button>
           </Right>
@@ -125,7 +135,9 @@ export default class Home extends Component {
          </Header>*/}
 
         <Content style={{backgroundColor: "green", flex: 1,}}>
-          <Map onSelectParkingService={this._onSelectParkingService} />
+          <Map 
+              destination={destination}
+              onSelectParkingService={this._onSelectParkingService} />
         </Content>
         {/*<Footer>
          <FooterTab>
@@ -177,6 +189,13 @@ export default class Home extends Component {
         }}
       />
     )
+  }
+
+  onSearchBtnPress = (navigator) => {
+    navigator.push({
+      title: "Search",
+      component: Search
+    })
   }
 }
 
