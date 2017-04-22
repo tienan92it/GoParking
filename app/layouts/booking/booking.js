@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Content, Form, Item, Input, Label, Icon, List, ListItem, Radio  , Button} from 'native-base';
+import { Container, Content, Form, Item, Input, Label, List, ListItem, Radio  , Button} from 'native-base';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import DatePicker from 'react-native-datepicker';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
@@ -24,13 +25,13 @@ export default class Booking extends Component {
         <Content>
           <List>
             <ListItem itemDivider>
-              <Text>PARKING HEAVEN</Text>
+              <Text  style={Styles.primaryTextColor} >BÃI ĐẬU XE HEAVEN</Text>
             </ListItem>
             <ListItem >
-              <Text> <Icon name='navigate' /> 128 Dien Bien Phu, Ho Chi Minh</Text>
+              <Text> <Icon name='map-marker' /> 128 Điện Biên Phủ, Hồ Chí Minh.</Text>
             </ListItem>
             <ListItem>
-              <Text><Icon name='time' /> 7:00 sáng - 12:00 tối</Text>
+              <Text><Icon name='clock-o' /> 7:00 sáng - 12:00 tối</Text>
             </ListItem>
             <ListItem itemDivider>
               <Text>NGÀY GIỜ ĐẶT CHỖ </Text>
@@ -106,12 +107,12 @@ export default class Booking extends Component {
               </Grid>
             </ListItem>
             <ListItem>
-              <Icon name='information-circle' />
-              <Text style={[Styles.paddingText, Styles.marginRight]}>Với hình thức SAU KHI RỜI BÃI, đặt chỗ của bạn sẽ tự động hủy sau 5 phút nếu bạn không đến bãi đậu xe.</Text>
+            
+              <Text><Icon name='exclamation-circle' /> Với hình thức SAU KHI RỜI BÃI, đặt chỗ của bạn sẽ tự động hủy sau 5 phút nếu bạn không đến bãi đậu xe.</Text>
             </ListItem>
             <ListItem>
               <Button full success style={{flex : 1 }}>
-                <Text style={Styles.whiteText}>Hoàn thành</Text>
+                <Text style={Styles.whiteTextColor}>Hoàn thành</Text>
               </Button>
             </ListItem>
           </List>

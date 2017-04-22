@@ -10,7 +10,10 @@ export default StyleSheet.create({
   marginRight: {
     marginRight: 20
   },
-  whiteText: {
+  whiteTextColor: {
     color: 'white'
+  },
+  primaryTextColor: {
+    color: '#00B386'
   }
 })
