@@ -8,6 +8,7 @@ import {
   View, Text, Image
 } from 'react-native';
 import Styles from './styles'
+import BookingSuccess from './../bookingSuccess/bookingSuccess';
 
 // import {connect} from 'react-redux';
 // import {actionCreators} from '../../reducer/reducer';
@@ -20,7 +21,8 @@ export default class Booking extends Component {
       sizeCarRadioList: [true, false, false]
     }
   }
-  onBackPress(navigator) {
+  onBackPress() {
+    const {navigator} = this.props;
     navigator.pop();
 
   }
@@ -135,7 +137,7 @@ export default class Booking extends Component {
               <Text><FontAwesomeIcon name='exclamation-circle' /> Với hình thức SAU KHI RỜI BÃI, đặt chỗ của bạn sẽ tự động hủy sau 5 phút nếu bạn không đến bãi đậu xe.</Text>
             </ListItem>
             <ListItem>
-              <Button full success style={{ flex: 1 }}>
+              <Button onPress={this._onConfirmationBtnPress} full success style={{ flex: 1 }}>
                 <Text style={Styles.whiteTextColor}>Hoàn thành</Text>
               </Button>
             </ListItem>
@@ -145,6 +147,14 @@ export default class Booking extends Component {
       </Container>
 
     )
+  }
+
+  _onConfirmationBtnPress = () => {
+    const {navigator} = this.props;
+    navigator.push({
+      title: "Booking preview",
+      component: BookingSuccess
+    })
   }
 }
 
