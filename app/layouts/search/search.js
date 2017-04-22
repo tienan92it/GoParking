@@ -15,9 +15,21 @@ import {
 // import {actionCreators} from "../../reducer/reducer";
 
 export default class Search extends Component {
+  GG_API_KEY = "AIzaSyAgI7Mxlxt-YZXYGiIw0tBkrjvAXjKvsow";
+  state = {
+    autocompletedPlaces: []
+  };
 
   constructor (props) {
-    super(props)
+    super(props);
+
+    this
+      .getAutocompletedPlaces("vincom")
+      .then((response)=>{
+        this.setState({
+          autocompletedPlaces: response.predictions || []
+        })
+      });
   }
 
   render() {
@@ -33,33 +45,33 @@ export default class Search extends Component {
 
           <Content>
             <Card>
-              <CardItem>
-                <Icon active name="logo-googleplus" />
-                <Text>Google Plus</Text>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-              </CardItem>
-
-              <CardItem>
-                <Icon active name="logo-googleplus" />
-                <Text>Google Plus</Text>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-              </CardItem>
-
-              <CardItem>
-                <Icon active name="logo-googleplus" />
-                <Text>Google Plus</Text>
-                <Right>
-                  <Icon name="arrow-forward" />
-                </Right>
-              </CardItem>
+              {
+                this.state.autocompletedPlaces.map((autocompletedPlace, index) => {
+                  return (
+                    <CardItem key={index}>
+                      <Text>{autocompletedPlace.description}</Text>
+                      <Right>
+                        <Icon name="arrow-forward" />
+                      </Right>
+                    </CardItem>
+                  )
+                })
+              }
             </Card>
           </Content>
       </Container>
     )
+  }
+
+  getAutocompletedPlaces = async (input) => {
+    endPoint = "https://maps.googleapis.com/maps/api/place/autocomplete/json";
+    try {
+      var result = await fetch(`${endPoint}?key=${this.GG_API_KEY}&input=${input}`);
+      return result.json();
+
+    } catch (e) {
+      return Promise.reject(e);
+    }
   }
 }
 

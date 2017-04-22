@@ -19,7 +19,7 @@ import Search from './layouts/search/search';
 
 const defaultRoute = {
   title: 'Search',
-  component: Home
+  component: Search
 }
 
 const GoParking = (props) => {
