@@ -3,10 +3,30 @@
  */
 import { StyleSheet } from 'react-native'
 
-export default StyleSheet.create({
+const STYLES = StyleSheet.create({
   container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center'
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  mapWrapper: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    left: 0,
+    bottom: 50
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  controlsWrapper: {
+    // backgroundColor: 'red',
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    left: 0,
+    bottom: 50
   }
-})
+});
+
+export default STYLES;
