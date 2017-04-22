@@ -10,9 +10,15 @@ export default class ParkingServiceMarker extends Component {
     return (
       <View style={Styles.parkingServiceMarker}>
         <View style={Styles.pricing}>
-          <Text style={{color: 'white', fontWeight: '600'}}>20$</Text>
+          <Text style={{color: 'white', fontWeight: '600'}}>
+            {this.getPrice()}k
+          </Text>
         </View>
       </View>
     );
+  }
+
+  getPrice = () => {
+    return Math.floor(Math.random() * 100) + 20;
   }
 };
