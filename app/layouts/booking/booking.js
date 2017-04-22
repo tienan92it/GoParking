@@ -5,7 +5,7 @@ import DatePicker from 'react-native-datepicker';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {
-  View, Text, Image
+  View, Text, Image, TouchableOpacity
 } from 'react-native';
 import Styles from './styles'
 import BookingSuccess from './../bookingSuccess/bookingSuccess';
@@ -19,7 +19,7 @@ export default class Booking extends Component {
     super(props);
     this.state = {
       sizeCarRadioList: [true, false, false],
-      paymentMethodRadioList: [true, false]
+      paymentMethodRadioList: [false, true]
     }
   }
   onBackPress() {
@@ -58,7 +58,10 @@ export default class Booking extends Component {
         <Content>
           <List>
             <ListItem itemDivider>
-              <Text style={Styles.primaryTextColor} >BÃI ĐẬU XE HEAVEN</Text>
+              <Text style={Styles.listTitleText} >BÃI ĐẬU XE</Text>
+            </ListItem>
+            <ListItem >
+              <Text>HEAVEN Parking</Text>
             </ListItem>
             <ListItem >
               <Text> <FontAwesomeIcon name='map-marker' /> 128 Điện Biên Phủ, Hồ Chí Minh.</Text>
@@ -67,7 +70,7 @@ export default class Booking extends Component {
               <Text><FontAwesomeIcon name='clock-o' /> 7:00 sáng - 12:00 tối</Text>
             </ListItem>
             <ListItem itemDivider>
-              <Text>NGÀY GIỜ ĐẶT CHỖ </Text>
+              <Text style={Styles.listTitleText}>NGÀY GIỜ ĐẶT CHỖ</Text>
             </ListItem>
             <ListItem>
               <Grid>
@@ -82,7 +85,7 @@ export default class Booking extends Component {
               </Grid>
             </ListItem>
             <ListItem itemDivider>
-              <Text>KÍCH THƯỚC XE</Text>
+              <Text style={Styles.listTitleText}>KÍCH THƯỚC XE</Text>
             </ListItem>
             <ListItem>
               <Grid>
@@ -121,7 +124,7 @@ export default class Booking extends Component {
               </Grid>
             </ListItem>
             <ListItem itemDivider>
-              <Text> HÌNH THỨC THANH TOÁN </Text>
+              <Text style={Styles.listTitleText}>HÌNH THỨC THANH TOÁN </Text>
             </ListItem>
             <ListItem>
               <Grid>
@@ -139,11 +142,35 @@ export default class Booking extends Component {
                 </Col>
               </Grid>
             </ListItem>
-           
+
             <ListItem>
-               {(this.state.paymentMethodRadioList[0]) && (
-                    <Text><FontAwesomeIcon name='exclamation-circle' /> Với hình thức SAU KHI RỜI BÃI, đặt chỗ của bạn sẽ tự động hủy sau 5 phút nếu bạn không đến bãi đậu xe.</Text>
-               )}           
+              {(this.state.paymentMethodRadioList[0]) && (
+                <Text><FontAwesomeIcon name='exclamation-circle' /> Với hình thức SAU KHI RỜI BÃI, đặt chỗ của bạn sẽ tự động hủy sau 5 phút nếu bạn không đến bãi đậu xe.</Text>
+              )}
+              {(this.state.paymentMethodRadioList[1]) && (
+
+                <Grid>
+                  <Text>Internet Banking</Text>
+                  <Row>
+                    <Col>
+                      <TouchableOpacity onPress={() => { }}>
+                        <Image style={Styles.bankIcon} source={require('../../assets/tpbank.png')} />
+                      </TouchableOpacity>
+                    </Col>
+                    <Col>
+                      <TouchableOpacity onPress={() => { }}>
+                        <Image style={Styles.bankIcon} source={require('../../assets/vietcombank.png')} />
+                      </TouchableOpacity>
+                    </Col>
+                    <Col>
+                      <TouchableOpacity onPress={() => { }}>
+                        <Image style={Styles.bankIcon} source={require('../../assets/sacombank.png')} />
+                      </TouchableOpacity>
+                    </Col>
+                  </Row>
+                </Grid>
+              )}
+
             </ListItem>
             <ListItem>
               <Button onPress={this._onConfirmationBtnPress} full success style={{ flex: 1 }}>
