@@ -22,14 +22,6 @@ export default class Search extends Component {
 
   constructor (props) {
     super(props);
-
-    this
-      .getAutocompletedPlaces("vincom")
-      .then((response)=>{
-        this.setState({
-          autocompletedPlaces: response.predictions || []
-        })
-      });
   }
 
   render() {
@@ -38,9 +30,11 @@ export default class Search extends Component {
           <Header searchBar rounded>
               <Item>
                   <Icon name="md-search" />
-                  <Input placeholder="Your destination" />
-                  <Icon name="md-close" />
+                  <Input onChangeText={this.onTextInputChange} placeholder="Your destination" />
               </Item>
+              <Right>
+                <Text style={{color: "white"}}>Close</Text>
+              </Right>
           </Header>
 
           <Content>
@@ -63,6 +57,16 @@ export default class Search extends Component {
     )
   }
 
+  onTextInputChange = (text) => {
+    this
+      .getAutocompletedPlaces(text)
+      .then((response)=>{
+        this.setState({
+          autocompletedPlaces: response.predictions || []
+        })
+      });
+  }
+
   getAutocompletedPlaces = async (input) => {
     endPoint = "https://maps.googleapis.com/maps/api/place/autocomplete/json";
     try {
@@ -72,6 +76,10 @@ export default class Search extends Component {
     } catch (e) {
       return Promise.reject(e);
     }
+  }
+
+  onCloseBtnPress = () => {
+    
   }
 }
 
