@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, Form, Item, Input, Label, List, ListItem, Radio, Button, Header, Left, Body,  Icon, Title, Right } from 'native-base';
+import { Container, Content, Form, Item, Input, Label, List, ListItem, Radio, Button, Header, Left, Body, Icon, Title, Right } from 'native-base';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import DatePicker from 'react-native-datepicker';
 import { Col, Row, Grid } from 'react-native-easy-grid';
@@ -15,10 +15,20 @@ import Styles from './styles'
 export default class Booking extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
+    this.state = {
+      sizeCarRadioList: [true, false, false]
+    }
   }
   onBackPress(navigator) {
     navigator.pop();
+
+  }
+  changeSizeCarRadioList(index) {
+    let currentSizeCarRadioList = this.state.sizeCarRadioList;
+    currentSizeCarRadioList.fill(false);
+    currentSizeCarRadioList[index] = true;
+    this.setState({ sizeCarRadioList: currentSizeCarRadioList });
   }
 
   render() {
@@ -33,7 +43,7 @@ export default class Booking extends Component {
           <Body>
             <Title>Đặt chỗ</Title>
           </Body>
-           <Right />
+          <Right />
         </Header>
 
         <Content>
@@ -74,7 +84,7 @@ export default class Booking extends Component {
                   <Text style={{ paddingLeft: 5 }}>Thông thường</Text>
                   <Text style={{ paddingLeft: 5 }}>(Coupe, Sedan, Wagon, Hatchback)</Text>
                 </Col>
-                <Col size={1} ><Radio selected={true} /></Col>
+                <Col size={1} ><Radio onPress={() => { this.changeSizeCarRadioList(0) }} selected={this.state.sizeCarRadioList[0]} /></Col>
               </Grid>
             </ListItem>
             <ListItem>
@@ -86,7 +96,7 @@ export default class Booking extends Component {
                   <Text style={{ paddingLeft: 5 }}>Trung bình</Text>
                   <Text style={{ paddingLeft: 5 }}>(SUV, Crossover, Minivan)</Text>
                 </Col>
-                <Col size={1} ><Radio /></Col>
+                <Col size={1} ><Radio onPress={() => { this.changeSizeCarRadioList(1) }} selected={this.state.sizeCarRadioList[1]} /></Col>
               </Grid>
             </ListItem>
             <ListItem>
@@ -98,7 +108,7 @@ export default class Booking extends Component {
                   <Text style={{ paddingLeft: 5 }}>Lớn</Text>
                   <Text style={{ paddingLeft: 5 }}>(Truck/Van)</Text>
                 </Col>
-                <Col size={1} ><Radio /></Col>
+                <Col size={1} ><Radio onPress={() => { this.changeSizeCarRadioList(2) }} selected={this.state.sizeCarRadioList[2]} /></Col>
               </Grid>
             </ListItem>
             <ListItem itemDivider>
