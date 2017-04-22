@@ -2,7 +2,7 @@
  * Created by AnTran on 4/22/17.
  */
 const Images = {
-  CoverImage: require('../images/images.jpeg'),
+  CoverImage: require('../images/cover.jpg'),
   CreditCard: require('../images/creditCard.png'),
   LocationArrow: require('../images/locationArrow.png'),
   RatingStar: require('../images/ratingStar.png'),

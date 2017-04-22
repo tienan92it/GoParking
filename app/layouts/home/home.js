@@ -14,6 +14,7 @@ import Images from '../../config/Images'
 import Map from './../../components/map';
 import ParkingInfo from './../parkinginfo/ParkingInfo';
 import ReservedList from './../reserved/ReservedList'
+import ParkingPopup from './../../components/parkingpopup/ParkingPopup'
 
 // import {connect} from 'react-redux';
 // import {actionCreators} from "../../reducer/reducer";
@@ -31,12 +32,13 @@ export default class Home extends Component {
     super(props)
 
     this.onMenuItemPress = this.onMenuItemPress.bind(this)
+    this._onClickPopup = this._onClickPopup.bind(this)
 
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows([]),
       menuList: ds.cloneWithRows([]),
-      currentId: 1
+      currentId: 1,
     }
   }
 
@@ -102,7 +104,7 @@ export default class Home extends Component {
       />
     </View>)
     let mainContent =
-      (<Container style={{backgroundColor: "blue", flex: 1,}}>
+      (<View style={{backgroundColor: "blue", flex: 1,}}>
         <Header>
           <Left>
             <Button transparent onPress={this.openControlPanel}>
@@ -134,7 +136,10 @@ export default class Home extends Component {
          </Button>
          </FooterTab>
          </Footer>*/}
-      </Container>)
+
+        <ParkingPopup ref={(ref) => this._popup = ref}
+                      onClickPopup={() => this._onClickPopup(navigator)} />
+      </View>)
 
 
     return (
@@ -159,10 +164,14 @@ export default class Home extends Component {
   _onSelectParkingService = () => {
     const {navigator} = this.props;
     
-    navigator.push({
-      title: "Parking Info",
-      component: ParkingInfo
-    });
+    // navigator.push({
+    //   title: "Parking Info",
+    //   component: ParkingInfo
+    // });
+    // this.setState({
+    //   parkingPopup: <ParkingPopup/>
+    // })
+    this._popup.open()
   }
 
   renderMenuSeparator(sectionID, rowID) {
@@ -177,6 +186,15 @@ export default class Home extends Component {
         }}
       />
     )
+  }
+
+  _onClickPopup(navigator) {
+    // alert("click roi ne")
+
+    navigator.push({
+      title: "Parking Info",
+      component: ParkingInfo
+    })
   }
 }
 

@@ -12,7 +12,7 @@ const STYLES = StyleSheet.create({
   panelTop: {
     flex: 0.25,
     flexDirection: 'row',
-    backgroundColor: "#1d7d12",
+    backgroundColor: "#00B386",
     alignItems: "center",
     justifyContent: "center"
   },

@@ -19,14 +19,14 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    backgroundColor: "#1d7d12"
+    backgroundColor: "#00B386"
   },
   rightButton: {
     flex: 0.5,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    backgroundColor: "#1d7d12"
+    backgroundColor: "#00B386"
   },
   textButton: {
     fontSize: 20,
