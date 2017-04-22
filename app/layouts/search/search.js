@@ -7,7 +7,8 @@ import {
 } from 'react-native';
 import Styles from './styles';
 import { 
-  Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Item, Input
+  Card, CardItem
+  , Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Item, Input
 } from 'native-base';
 
 // import {connect} from 'react-redux';
@@ -31,7 +32,31 @@ export default class Search extends Component {
           </Header>
 
           <Content>
-            <Text>Lorem ipsum</Text>
+            <Card>
+              <CardItem>
+                <Icon active name="logo-googleplus" />
+                <Text>Google Plus</Text>
+                <Right>
+                  <Icon name="arrow-forward" />
+                </Right>
+              </CardItem>
+
+              <CardItem>
+                <Icon active name="logo-googleplus" />
+                <Text>Google Plus</Text>
+                <Right>
+                  <Icon name="arrow-forward" />
+                </Right>
+              </CardItem>
+
+              <CardItem>
+                <Icon active name="logo-googleplus" />
+                <Text>Google Plus</Text>
+                <Right>
+                  <Icon name="arrow-forward" />
+                </Right>
+              </CardItem>
+            </Card>
           </Content>
       </Container>
     )
