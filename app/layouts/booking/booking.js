@@ -18,11 +18,12 @@ export default class Booking extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sizeCarRadioList: [true, false, false]
+      sizeCarRadioList: [true, false, false],
+      paymentMethodRadioList: [true, false]
     }
   }
   onBackPress() {
-    const {navigator} = this.props;
+    const { navigator } = this.props;
     navigator.pop();
 
   }
@@ -31,6 +32,12 @@ export default class Booking extends Component {
     currentSizeCarRadioList.fill(false);
     currentSizeCarRadioList[index] = true;
     this.setState({ sizeCarRadioList: currentSizeCarRadioList });
+  }
+  changePaymentMethodRadioList(index) {
+    let currentPaymentMethodRadioList = this.state.paymentMethodRadioList;
+    currentPaymentMethodRadioList.fill(false);
+    currentPaymentMethodRadioList[index] = true;
+    this.setState({ paymentMethodRadioList: currentPaymentMethodRadioList });
   }
 
   render() {
@@ -120,21 +127,23 @@ export default class Booking extends Component {
               <Grid>
                 <Col>
                   <Row>
-                    <Radio selected={true} />
+                    <Radio selected={this.state.paymentMethodRadioList[0]} onPress={() => { this.changePaymentMethodRadioList(0) }} />
                     <Text style={{ paddingLeft: 5 }}>SAU KHI RỜI BÃI</Text>
                   </Row>
                 </Col>
                 <Col>
                   <Row>
-                    <Radio />
+                    <Radio selected={this.state.paymentMethodRadioList[1]} onPress={() => { this.changePaymentMethodRadioList(1) }} />
                     <Text style={{ paddingLeft: 5 }}>TRƯỚC KHI ĐẾN BÃI</Text>
                   </Row>
                 </Col>
               </Grid>
             </ListItem>
+           
             <ListItem>
-
-              <Text><FontAwesomeIcon name='exclamation-circle' /> Với hình thức SAU KHI RỜI BÃI, đặt chỗ của bạn sẽ tự động hủy sau 5 phút nếu bạn không đến bãi đậu xe.</Text>
+               {(this.state.paymentMethodRadioList[0]) && (
+                    <Text><FontAwesomeIcon name='exclamation-circle' /> Với hình thức SAU KHI RỜI BÃI, đặt chỗ của bạn sẽ tự động hủy sau 5 phút nếu bạn không đến bãi đậu xe.</Text>
+               )}           
             </ListItem>
             <ListItem>
               <Button onPress={this._onConfirmationBtnPress} full success style={{ flex: 1 }}>
@@ -150,7 +159,7 @@ export default class Booking extends Component {
   }
 
   _onConfirmationBtnPress = () => {
-    const {navigator} = this.props;
+    const { navigator } = this.props;
     navigator.push({
       title: "Booking preview",
       component: BookingSuccess
