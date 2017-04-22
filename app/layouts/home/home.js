@@ -113,7 +113,7 @@ class Home extends Component {
       />
     </View>)
     let mainContent =
-      (<View style={{backgroundColor: "blue", flex: 1,}}>
+      (<View style={{flex: 1}}>
         <Header>
           <Left>
             <Button transparent onPress={this.openControlPanel}>
@@ -137,7 +137,7 @@ class Home extends Component {
          </Item>
          </Header>*/}
 
-        <Content style={{backgroundColor: "green", flex: 1,}}>
+        <Content style={{flex: 1}}>
           <Map navigator={navigator}
                destination={destination}
                onSelectParkingService={this._onSelectParkingService} />

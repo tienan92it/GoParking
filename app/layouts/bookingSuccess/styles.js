@@ -22,8 +22,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   qrcode: {
-    width: 100,
-    height: 100
+    width: 150,
+    height: 150
   },
   navigateIcon: {
     fontSize: 20,
