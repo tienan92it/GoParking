@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import _ from 'lodash';
+import dummyData from './../../dummy-data';
 
 export default class Map extends Component {
     render() {
@@ -28,15 +29,21 @@ export default class Map extends Component {
           style={Styles.map}
           region={region}
         >
-          <MapView.Marker
-            coordinate={{
-              latitude: destination.latitude,
-              longitude: destination.longitude
-            }}
-            onPress={(e) => {this._onParkServiceMarkerPress()}}
-          >
-            <ParkingServiceMarker />
-          </MapView.Marker>
+          {
+            dummyData.parkingServices.map((parkingService) => {
+              return (
+                <MapView.Marker
+                  coordinate={{
+                    latitude: parkingService.latitude,
+                    longitude: parkingService.longitude
+                  }}
+                  onPress={(e) => {this._onParkServiceMarkerPress()}}
+                >
+                  <ParkingServiceMarker />
+                </MapView.Marker>
+              )
+            })
+          }
         </MapView>
 
         <TouchableOpacity style={{position: "absolute", right: 15, bottom: 15}} onPress={this._onMyLocationBtnPress}>
