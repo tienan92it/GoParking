@@ -14,13 +14,13 @@ const BottomBar = (props) => {
       <TouchableOpacity style={Styles.leftButton}
                         onPress={reserveAction}>
         <Image style={Styles.icon} source={Images.CreditCard}/>
-        <Text style={Styles.textButton}>Dat cho</Text>
+        <Text style={Styles.textButton}>Đặt chỗ</Text>
       </TouchableOpacity>
       <View style={Styles.divider}/>
       <TouchableOpacity style={Styles.rightButton}
                         onPress={pathAction}>
         <Image style={Styles.icon} source={Images.LocationArrow}/>
-        <Text style={Styles.textButton}>Chi duong</Text>
+        <Text style={Styles.textButton}>Chỉ đường</Text>
       </TouchableOpacity>
     </View>
 

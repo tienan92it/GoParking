@@ -55,7 +55,7 @@ export default class ParkingInfo extends Component {
               </Button>
             </Left>
             <Body>
-            <Title>Parking Detail</Title>
+            <Title>Thông tin bãi giữ xe</Title>
             </Body>
             <Right>
               <Button transparent>

@@ -16,4 +16,10 @@ export default StyleSheet.create({
     fontWeight: "bold",
     color: "#000"
   },
+  clockIcon: {
+    resizeMode: 'contain',
+    width: 20,
+    height: 20,
+    marginRight: 10
+  }
 })

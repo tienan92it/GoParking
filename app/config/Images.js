@@ -6,7 +6,9 @@ const Images = {
   CreditCard: require('../images/creditCard.png'),
   LocationArrow: require('../images/locationArrow.png'),
   RatingStar: require('../images/ratingStar.png'),
-  Clock: require('../images/clock.png')
+  Clock: require('../images/clock.png'),
+  personIcon: require('../images/person.png'),
+  reservedIcon: require('../images/reservation.png')
 }
 
 export default Images
