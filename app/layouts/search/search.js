@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import {
   View,
   TextView,
-  Text
+  Text,
+  TouchableOpacity
 } from 'react-native';
 import Styles from './styles';
 import { 
@@ -39,21 +40,39 @@ export default class Search extends Component {
               </Right>
           </Header>
 
+          
+
           <Content>
-            <Card>
-              {
-                this.state.autocompletedPlaces.map((autocompletedPlace, index) => {
-                  return (
-                    <CardItem button onPress={()=>{ this.onAutocompletedPlacePress(autocompletedPlace) }} key={index}>
-                      <Text>{autocompletedPlace.description}</Text>
-                      <Right>
-                        <Icon name="arrow-forward" />
-                      </Right>
-                    </CardItem>
-                  )
-                })
-              }
-            </Card>
+            <TouchableOpacity onPress={() => {
+              this.props.navigator.push({
+                component: Home,
+                passProps: {
+                  destination: {
+                    latitude: 10.8456724,
+                    longitude: 106.7791289
+                  }
+                }
+              })
+            }}>
+              <Text>Lorem ipsum lorem ipsum</Text>
+            </TouchableOpacity>
+            {
+              this.state.autocompletedPlaces.length ?
+              (<Card>
+                {
+                  this.state.autocompletedPlaces.map((autocompletedPlace, index) => {
+                    return (
+                      <CardItem button onPress={()=>{ this.onAutocompletedPlacePress(autocompletedPlace) }} key={index}>
+                        <Text>{autocompletedPlace.description}</Text>
+                        <Right>
+                          <Icon name="arrow-forward" />
+                        </Right>
+                      </CardItem>
+                    )
+                  })
+                }
+              </Card>) : undefined
+            }
           </Content>
       </Container>
     )

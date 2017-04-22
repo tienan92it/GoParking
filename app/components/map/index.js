@@ -10,26 +10,22 @@ import {
   TouchableOpacity
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import _ from 'lodash';
 
 export default class Map extends Component {
-  state = {
-    region: {
-      latitude: 10.7782168,
-      longitude: 106.7016733,
+  render() {
+    const destination = _.get(this.props, ['destination'], {});
+    const region = {
+      ...destination,
       latitudeDelta: 0.05,
       longitudeDelta: 0.05
     }
-  }
 
-  componentDidUpdate(prevProps, prepState) {
-  }
-
-  render() {
     return (
       <View style={Styles.mapWrapper}>
         <MapView
           style={Styles.map}
-          region={this.state.region}
+          region={region}
         >
           <MapView.Marker
             coordinate={{

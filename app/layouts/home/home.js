@@ -14,17 +14,28 @@ import {
 } from 'native-base';
 import Map from './../../components/map';
 import ParkingInfo from './../parkinginfo/ParkingInfo';
+import Search from './../search/search';
+import _ from 'lodash';
 
 // import {connect} from 'react-redux';
 // import {actionCreators} from "../../reducer/reducer";
 
 export default class Home extends Component {
+  DEFAULT_DESTINATION = {
+    latitude: 10.7782168,
+    longitude: 106.7016733
+  };
 
   constructor (props) {
     super(props)
   }
 
   render() {
+    const {navigator} = this.props;
+    const destination = _.get(
+      this.props, ['passProps', 'destination'], this.DEFAULT_DESTINATION
+    );
+
     return (
       <Container style={{backgroundColor: "blue", flex: 1,}}>
           <Header>
@@ -34,7 +45,9 @@ export default class Home extends Component {
                   </Button>
               </Left>
               <Right>
-                <Button transparent>
+                <Button onPress={() => {
+                  this.onSearchBtnPress(navigator);
+                }} transparent>
                     <Icon name="md-search" />
                 </Button>
               </Right>
@@ -49,7 +62,9 @@ export default class Home extends Component {
           </Header>*/}
 
           <Content style={{backgroundColor: "green", flex: 1,}}>
-            <Map onSelectParkingService={this._onSelectParkingService} />
+            <Map 
+              destination={destination}
+              onSelectParkingService={this._onSelectParkingService} />
           </Content>
           {/*<Footer>
               <FooterTab>
@@ -69,6 +84,13 @@ export default class Home extends Component {
       title: "Parking Info",
       component: ParkingInfo
     });
+  }
+
+  onSearchBtnPress = (navigator) => {
+    navigator.push({
+      title: "Search",
+      component: Search
+    })
   }
 }
 
