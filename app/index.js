@@ -13,10 +13,11 @@ import {
 // const store = createStore(reducers);
 
 import Home from './layouts/home/home'
+import ParkingInfo from './layouts/parkinginfo/ParkingInfo'
 
 const defaultRoute = {
-  title: 'Home',
-  component: Home
+  title: 'ParkingInfo',
+  component: ParkingInfo
 }
 
 const GoParking = (props) => {
