@@ -71,13 +71,6 @@ export default class Map extends Component {
   }
 
   _onMyLocationBtnPress = () => {
-    this.setState({
-      region: {
-        latitude: 10.7782422,
-        longitude: 106.7012126,
-        latitudeDelta: 0.006,
-        longitudeDelta: 0.006
-      }
-    });
+    this.props.onMyLocationBtnPress();
   }
 };

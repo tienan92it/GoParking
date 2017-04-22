@@ -88,7 +88,7 @@ class Home extends Component {
 
   render() {
 
-    const {navigator} = this.props;
+    const {navigator, dispatch} = this.props;
     const destination = _.get(
       this.props, ['location', 'destination'], this.DEFAULT_DESTINATION
     );
@@ -140,7 +140,9 @@ class Home extends Component {
         <Content style={{flex: 1}}>
           <Map navigator={navigator}
                destination={destination}
-               onSelectParkingService={this._onSelectParkingService} />
+               onSelectParkingService={this._onSelectParkingService} 
+               onMyLocationBtnPress={this.onMyLocationBtnPress}
+          />
         </Content>
         {/*<Footer>
          <FooterTab>
@@ -172,6 +174,13 @@ class Home extends Component {
         {mainContent}
       </Drawer>
     )
+  }
+
+  onMyLocationBtnPress = () => {
+    const {dispatch} = this.props;
+    dispatch(actionCreators.storeLocation({
+      destination: this.DEFAULT_DESTINATION
+    }));
   }
 
   _onSelectParkingService = () => {
