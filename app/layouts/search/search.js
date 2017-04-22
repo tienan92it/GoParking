@@ -35,9 +35,9 @@ export default class Search extends Component {
                   <Icon name="md-search" />
                   <Input onChangeText={this.onTextInputChange} placeholder="Your destination" />
               </Item>
-              <Right>
+              {/*<Right>
                 <Text style={{color: "white"}}>Close</Text>
-              </Right>
+              </Right>*/}
           </Header>
 
           
