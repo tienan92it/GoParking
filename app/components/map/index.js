@@ -17,8 +17,8 @@ export default class Map extends Component {
     const destination = _.get(this.props, ['destination'], {});
     const region = {
       ...destination,
-      latitudeDelta: 0.05,
-      longitudeDelta: 0.05
+      latitudeDelta: 0.006,
+      longitudeDelta: 0.006
     }
 
     return (
@@ -40,7 +40,7 @@ export default class Map extends Component {
         
         <TouchableOpacity onPress={this._onMyLocationBtnPress}>
           <MaterialIcons style={Styles.myLocationBtn} name="my-location" />
-          <Text>Lorem ipsum</Text>
+          <Text>My location</Text>
         </TouchableOpacity>
       </View>
     );

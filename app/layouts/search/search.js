@@ -43,19 +43,6 @@ export default class Search extends Component {
           
 
           <Content>
-            <TouchableOpacity onPress={() => {
-              this.props.navigator.push({
-                component: Home,
-                passProps: {
-                  destination: {
-                    latitude: 10.8456724,
-                    longitude: 106.7791289
-                  }
-                }
-              })
-            }}>
-              <Text>Lorem ipsum lorem ipsum</Text>
-            </TouchableOpacity>
             {
               this.state.autocompletedPlaces.length ?
               (<Card>
@@ -91,8 +78,8 @@ export default class Search extends Component {
           component: Home,
           passProps: {
             destination: {
-              lat: _.get(placeInfo, 'geometry.location.lat'),
-              lng: _.get(placeInfo, 'geometry.location.lng')
+              latitude: _.get(placeInfo, 'geometry.location.lat'),
+              longitude: _.get(placeInfo, 'geometry.location.lng')
             }
           }
         });
