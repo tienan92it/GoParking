@@ -71,15 +71,18 @@ export default class BookingSuccess extends Component {
                 <Row>
                   <Text><FontAwesomeIcon name='exclamation-circle' /> Với hình thức SAU KHI RỜI BÃI, đặt chỗ của bạn sẽ tự động hủy sau 5 phút nếu bạn không đến bãi đậu xe.</Text>
                 </Row>
+                <Row style={Styles.centerItem} >
+                  <Image style={Styles.qrcode} source={require('./qrcode.jpg')} />
+                </Row>
               </Grid>
             </ListItem>
             <ListItem>
               <Button full success iconLeft style={{ flex: 1 }}>
                 <Icon name='ios-navigate' />
-                 <Text style={Styles.whiteTextColor}>Chỉ đường</Text>
+                <Text style={Styles.whiteTextColor}>Chỉ đường</Text>
               </Button>
 
-            
+
             </ListItem>
           </List>
         </Content>

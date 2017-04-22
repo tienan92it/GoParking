@@ -11,14 +11,22 @@ export default StyleSheet.create({
     marginTop: 5,
     marginBottom: 5
   },
-  boldLabel : {
-    fontWeight : '900'
+  boldLabel: {
+    fontWeight: '900'
   },
   whiteTextColor: {
     color: 'white'
   },
-  navigateIcon : {
+  centerItem: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  qrcode: {
+    width: 100,
+    height: 100
+  },
+  navigateIcon: {
     fontSize: 20,
-     fontWeight : '900'
+    fontWeight: '900'
   }
 })
