@@ -14,10 +14,11 @@ import {
 
 import Home from './layouts/home/home'
 import ParkingInfo from './layouts/parkinginfo/ParkingInfo'
+import ReservedList from './layouts/reserved/ReservedList'
 
 const defaultRoute = {
-  title: 'ParkingInfo',
-  component: ParkingInfo
+  title: 'ReservedList',
+  component: ReservedList
 }
 
 const GoParking = (props) => {
