@@ -4,13 +4,9 @@
 import React, { Component } from 'react';
 
 import {
-<<<<<<< HEAD
-  View , Text
-=======
   View,
   TextView,
   Text
->>>>>>> origin/ui-home-screen
 } from 'react-native';
 import Styles from './styles';
 import { 
@@ -29,11 +25,6 @@ export default class Home extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
-      <View style={Styles.container}>
-        <Text>Show cai Map len di!!!</Text>
-      </View>
-=======
       <Container style={{backgroundColor: "blue", flex: 1,}}>
           <Header>
               <Left>
@@ -67,7 +58,6 @@ export default class Home extends Component {
               </FooterTab>
           </Footer>*/}
       </Container>
->>>>>>> origin/ui-home-screen
     )
   }
 }
