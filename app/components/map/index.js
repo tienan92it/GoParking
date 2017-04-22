@@ -38,9 +38,8 @@ export default class Map extends Component {
           </MapView.Marker>
         </MapView>
         
-        <TouchableOpacity onPress={this._onMyLocationBtnPress}>
-          <MaterialIcons style={Styles.myLocationBtn} name="my-location" />
-          <Text>My location</Text>
+        <TouchableOpacity style={{position: "absolute", right: 15, bottom: 15}} onPress={this._onMyLocationBtnPress}>
+          <MaterialIcons style={{fontSize: 30}} name="my-location" />
         </TouchableOpacity>
       </View>
     );
