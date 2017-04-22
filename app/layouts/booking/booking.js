@@ -168,6 +168,23 @@ export default class Booking extends Component {
                       </TouchableOpacity>
                     </Col>
                   </Row>
+                   <Row>
+                    <Col>
+                      <TouchableOpacity onPress={() => { }}>
+                        <Image style={Styles.bankIcon} source={require('../../assets/acbbank.png')} />
+                      </TouchableOpacity>
+                    </Col>
+                    <Col>
+                      <TouchableOpacity onPress={() => { }}>
+                        <Image style={Styles.bankIcon} source={require('../../assets/vpbank.png')} />
+                      </TouchableOpacity>
+                    </Col>
+                    <Col>
+                      <TouchableOpacity onPress={() => { }}>
+                        <Image style={Styles.bankIcon} source={require('../../assets/teckcombank.png')} />
+                      </TouchableOpacity>
+                    </Col>
+                  </Row>
                 </Grid>
               )}
 
