@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, Form, Item, Input, Label, Icon, List, ListItem, Radio } from 'native-base';
+import { Container, Content, Form, Item, Input, Label, Icon, List, ListItem, Radio  , Button} from 'native-base';
 import DatePicker from 'react-native-datepicker';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 
@@ -94,36 +94,28 @@ export default class Booking extends Component {
                 <Col>
                   <Row>
                     <Radio selected={true} />
-                    <Text style={{ paddingLeft: 5 }}>Sau khi rời bãi</Text>
+                    <Text style={{ paddingLeft: 5 }}>SAU KHI RỜI BÃI</Text>
                   </Row>
                 </Col>
                 <Col>
                   <Row>
                     <Radio />
-                    <Text style={{ paddingLeft: 5 }}>Thanh toán trước</Text>
+                    <Text style={{ paddingLeft: 5 }}>TRƯỚC KHI ĐẾN BÃI</Text>
                   </Row>
-
                 </Col>
-
-
-
-
               </Grid>
             </ListItem>
-
+            <ListItem>
+              <Icon name='information-circle' />
+              <Text style={[Styles.paddingText, Styles.marginRight]}>Với hình thức SAU KHI RỜI BÃI, đặt chỗ của bạn sẽ tự động hủy sau 5 phút nếu bạn không đến bãi đậu xe.</Text>
+            </ListItem>
+            <ListItem>
+              <Button full success style={{flex : 1 }}>
+                <Text style={Styles.whiteText}>Hoàn thành</Text>
+              </Button>
+            </ListItem>
           </List>
 
-
-          <Form>
-            <Item floatingLabel>
-              <Label>Username</Label>
-              <Input />
-            </Item>
-            <Item floatingLabel last>
-              <Label>Password</Label>
-              <Input />
-            </Item>
-          </Form>
         </Content>
       </Container>
 

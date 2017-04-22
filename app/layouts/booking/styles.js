@@ -4,9 +4,13 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center'
+  paddingText: {
+    paddingLeft: 5,
+  },
+  marginRight: {
+    marginRight: 20
+  },
+  whiteText: {
+    color: 'white'
   }
 })
