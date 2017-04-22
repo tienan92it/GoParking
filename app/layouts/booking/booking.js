@@ -31,7 +31,7 @@ export default class Booking extends Component {
             </Button>
           </Left>
           <Body>
-            <Title style={{textAlign : 'left'}}>Đặt chỗ</Title>
+            <Title>Đặt chỗ</Title>
           </Body>
            <Right />
         </Header>
