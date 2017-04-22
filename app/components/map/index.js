@@ -30,9 +30,10 @@ export default class Map extends Component {
           region={region}
         >
           {
-            dummyData.parkingServices.map((parkingService) => {
+            dummyData.parkingServices.map((parkingService, index) => {
               return (
                 <MapView.Marker
+                  key={index}
                   coordinate={{
                     latitude: parkingService.latitude,
                     longitude: parkingService.longitude
