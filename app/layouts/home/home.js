@@ -58,6 +58,14 @@ export default class Home extends Component {
                   longitudeDelta: 0.0121,
                 }}
               >
+                <MapView.Marker
+                  coordinate={{
+                    latitude: 37.78825,
+                    longitude: -122.4324
+                  }}
+                  title="ahihi"
+                  description="This is description"
+                />
               </MapView>
             </View>
 
