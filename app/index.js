@@ -14,10 +14,11 @@ import {
 
 import Home from './layouts/home/home';
 import Booking from './layouts/booking/booking';
+import ParkingInfo from './layouts/parkinginfo/ParkingInfo'
 
 const defaultRoute = {
-  title: 'Home',
-  component: Booking
+  title: 'ParkingInfo',
+  component: ParkingInfo
 }
 
 const GoParking = (props) => {
