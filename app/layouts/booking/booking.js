@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Content, Form, Item, Input, Label, List, ListItem, Radio  , Button} from 'native-base';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { Container, Content, Form, Item, Input, Label, List, ListItem, Radio, Button, Header, Left, Body,  Icon, Title, Right } from 'native-base';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import DatePicker from 'react-native-datepicker';
 import { Col, Row, Grid } from 'react-native-easy-grid';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {
   View, Text, Image
 } from 'react-native';
@@ -17,21 +17,35 @@ export default class Booking extends Component {
   constructor(props) {
     super(props)
   }
-
+  onBackPress(navigator) {
+    navigator.pop();
+  }
 
   render() {
     return (
       <Container >
+        <Header backgroundColor="#1d7d12">
+          <Left>
+            <Button transparent onPress={() => this.onBackPress(navigator)}>
+              <Icon name='arrow-back' />
+            </Button>
+          </Left>
+          <Body>
+            <Title style={{textAlign : 'left'}}>Đặt chỗ</Title>
+          </Body>
+           <Right />
+        </Header>
+
         <Content>
           <List>
             <ListItem itemDivider>
-              <Text  style={Styles.primaryTextColor} >BÃI ĐẬU XE HEAVEN</Text>
+              <Text style={Styles.primaryTextColor} >BÃI ĐẬU XE HEAVEN</Text>
             </ListItem>
             <ListItem >
-              <Text> <Icon name='map-marker' /> 128 Điện Biên Phủ, Hồ Chí Minh.</Text>
+              <Text> <FontAwesomeIcon name='map-marker' /> 128 Điện Biên Phủ, Hồ Chí Minh.</Text>
             </ListItem>
             <ListItem>
-              <Text><Icon name='clock-o' /> 7:00 sáng - 12:00 tối</Text>
+              <Text><FontAwesomeIcon name='clock-o' /> 7:00 sáng - 12:00 tối</Text>
             </ListItem>
             <ListItem itemDivider>
               <Text>NGÀY GIỜ ĐẶT CHỖ </Text>
@@ -107,11 +121,11 @@ export default class Booking extends Component {
               </Grid>
             </ListItem>
             <ListItem>
-            
-              <Text><Icon name='exclamation-circle' /> Với hình thức SAU KHI RỜI BÃI, đặt chỗ của bạn sẽ tự động hủy sau 5 phút nếu bạn không đến bãi đậu xe.</Text>
+
+              <Text><FontAwesomeIcon name='exclamation-circle' /> Với hình thức SAU KHI RỜI BÃI, đặt chỗ của bạn sẽ tự động hủy sau 5 phút nếu bạn không đến bãi đậu xe.</Text>
             </ListItem>
             <ListItem>
-              <Button full success style={{flex : 1 }}>
+              <Button full success style={{ flex: 1 }}>
                 <Text style={Styles.whiteTextColor}>Hoàn thành</Text>
               </Button>
             </ListItem>
