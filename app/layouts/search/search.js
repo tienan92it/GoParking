@@ -33,7 +33,7 @@ class Search extends Component {
           <Header searchBar rounded>
               <Item style={{flex: 1}}>
                   <Icon name="md-search" />
-                  <Input onChangeText={this.onTextInputChange} placeholder="Your destination" />
+                  <Input onChangeText={this.onTextInputChange} placeholder="Điểm đến của bạn" />
               </Item>
               
                 <View style={{alignItems: "center", justifyContent: "center", paddingLeft: 15}}>
