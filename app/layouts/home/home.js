@@ -43,7 +43,9 @@ export default class Home extends Component {
   componentDidMount() {
     this.setState({
       menuList: this.state.menuList.cloneWithRows([{icon: Images.personIcon, title: 'Thông tin cá nhân', id: 1},
-        {icon: Images.reservedIcon, title: 'Dach sách đặt chỗ', id: 2}])
+        {icon: Images.reservedIcon, title: 'Dach sách đặt chỗ', id: 2},
+        {icon: Images.settingIcon, title: 'Cài đặt', id: 3},
+        {icon: Images.helpIcon, title: 'Trợ giúp', id: 4}])
     })
   }
 
