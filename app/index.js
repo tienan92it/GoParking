@@ -12,11 +12,12 @@ import {
 // import { createStore } from 'redux';
 // const store = createStore(reducers);
 
-import Home from './layouts/home/home'
+import Home from './layouts/home/home';
+import Booking from './layouts/booking/booking';
 
 const defaultRoute = {
   title: 'Home',
-  component: Home
+  component: Booking
 }
 
 const GoParking = (props) => {

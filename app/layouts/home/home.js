@@ -3,8 +3,7 @@
  */
 import React, { Component } from 'react';
 import {
-  View,
-  TextView
+  View , Text
 } from 'react-native';
 import Styles from './styles'
 
@@ -20,7 +19,7 @@ export default class Home extends Component {
   render() {
     return (
       <View style={Styles.container}>
-        <TextView>Show cai Map len di!!!</TextView>
+        <Text>Show cai Map len di!!!</Text>
       </View>
     )
   }
