@@ -25,7 +25,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <Container style={{backgroundColor: "blue"}}>
+      <Container style={{backgroundColor: "blue", flex: 1,}}>
           <Header>
               <Left>
                   <Button transparent>
@@ -47,7 +47,7 @@ export default class Home extends Component {
               </Item>
           </Header>*/}
 
-          <Content style={{backgroundColor: "green"}}>
+          <Content style={{backgroundColor: "green", flex: 1,}}>
             <View style={Styles.mapWrapper}>
               <MapView
                 style={Styles.map}
