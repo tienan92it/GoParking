@@ -53,10 +53,10 @@ export default class Map extends Component {
   _onMyLocationBtnPress = () => {
     this.setState({
       region: {
-        latitude: 21.0061913,
-        longitude: 105.8313511,
-        latitudeDelta: 0.05,
-        longitudeDelta: 0.05
+        latitude: 10.7782422,
+        longitude: 106.7012126,
+        latitudeDelta: 0.006,
+        longitudeDelta: 0.006
       }
     })
   }
