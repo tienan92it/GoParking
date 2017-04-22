@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import _ from 'lodash';
+import Images from '../../config/Images'
 
 export default class Map extends Component {
     render() {
@@ -34,8 +35,9 @@ export default class Map extends Component {
               longitude: destination.longitude
             }}
             onPress={(e) => {this._onParkServiceMarkerPress()}}
+            image={Images.mapMarker}
           >
-            <ParkingServiceMarker />
+            {/*<ParkingServiceMarker />*/}
           </MapView.Marker>
         </MapView>
         

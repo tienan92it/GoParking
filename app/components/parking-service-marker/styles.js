@@ -3,6 +3,8 @@ import { StyleSheet } from 'react-native'
 
 const STYLES = StyleSheet.create({
   parkingServiceMarker: {
+    width: 50,
+    height: 50,
     alignItems: 'center'
   },
   pricing: {
@@ -15,6 +17,11 @@ const STYLES = StyleSheet.create({
   },
   pricingText: {
     color: '#fff'
+  },
+  marker: {
+    width: 50,
+    height: 50,
+    resizeMode: 'contain'
   }
 });
 
