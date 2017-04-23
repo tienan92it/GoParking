@@ -17,10 +17,11 @@ import Booking from './layouts/booking/booking';
 import ParkingInfo from './layouts/parkinginfo/ParkingInfo'
 import ReservedList from './layouts/reserved/ReservedList'
 import Search from './layouts/search/search';
+import Introduce from './layouts/introduce';
 
 const defaultRoute = {
   title: 'Search',
-  component: Home
+  component: Introduce
 }
 
 const GoParking = (props) => {
