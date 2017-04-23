@@ -35,8 +35,8 @@ export default class Map extends Component {
               latitude: destination.latitude,
               longitude: destination.longitude
             }}
-            onPress={(e) => {this._onParkServiceMarkerPress()}}
-            image={Images.mapMarker}
+            // onPress={(e) => {this._onParkServiceMarkerPress()}}
+            image={Images.currentLocation}
           >
             {/*<ParkingServiceMarker />*/}
           </MapView.Marker>
