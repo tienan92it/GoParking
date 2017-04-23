@@ -12,7 +12,9 @@ const Images = {
   helpIcon: require('../images/helpIcon.png'),
   settingIcon: require('../images/settingIcon.png'),
   mapMarker: require('../images/marker.png'),
-  currentLocation: require('../images/currentLocation.png')
+  currentLocation: require('../images/currentLocation.png'),
+  parkingService1: require('../images/parking-service-1.jpg'),
+  parkingService2: require('../images/parking-service-2.jpg')
 }
 
 export default Images

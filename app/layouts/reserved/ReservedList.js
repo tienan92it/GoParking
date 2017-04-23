@@ -14,8 +14,8 @@ import Images from '../../config/Images'
 import BookingSuccess from './../bookingSuccess/bookingSuccess';
 
 const list = [{name: 'Parking Heaven', address: '208 Điện Biên Phủ', in_out: '10h - 17h', image: Images.CoverImage, date: '23/4/2017'},
-  {name: 'Hell Parking', address: '11 Lê Duẩn', in_out: '8h - 20h', image: Images.reservedIcon, date: '23/4/2017'},
-  {name: 'Devil Parking', address: '69 Tôn Đức Thằng', in_out: '15h - 1h', image: Images.personIcon, date: '23/4/2017'}]
+  {name: 'Hell Parking', address: '11 Lê Duẩn', in_out: '8h - 20h', image: Images.parkingService1, date: '23/4/2017'},
+  {name: 'Devil Parking', address: '69 Tôn Đức Thằng', in_out: '15h - 1h', image: Images.parkingService2, date: '23/4/2017'}]
 
 export default class ReservedList extends Component {
 
