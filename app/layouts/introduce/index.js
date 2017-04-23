@@ -87,7 +87,7 @@ export default class ReservedList extends Component {
           </View>
         </Swiper>
         <View style={{position: "absolute", right: 15, bottom: 15}}>
-          <TouchableOpacity onPress={()=>{ navigator.push({component: Home}) }}>
+          <TouchableOpacity onPress={()=>{ navigator.replace({component: Home}) }}>
             <Text>Skip</Text>
           </TouchableOpacity>
         </View>
